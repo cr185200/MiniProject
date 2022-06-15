@@ -3,17 +3,13 @@ import { CreateCatalogDto } from 'src/api/catalog/models/Requests/CreateCatalog.
 import { CatalogClient } from 'src/utils/catalog/catalogClient';
 @Injectable()
 export class CatalogService {
-    constructor(
-        private catalogClient: CatalogClient,
-    ) {}
+    constructor(private catalogClient: CatalogClient) {}
 
-    createoldItem(itemCode: string){
-        console.log("Loser");
-        return this.catalogClient.createCatalogItem(itemCode);
+    createItem(itemCode:string, CreateCatalogDto: CreateCatalogDto) {
+        return this.catalogClient.createItem(itemCode, CreateCatalogDto);
     }
 
-    createItem(itemCode:string) {
-        
+    getAllItems() {
+        return this.catalogClient.getAllItems();
     }
-
 } // catalog service 

@@ -1,88 +1,40 @@
 export class CreateCatalogDto {
-    yikes?: string
-  // data = JSON.stringify({
-  //       version: 1,
-  //       packageIdentifiers: [
-  //         {
-  //           type: 'Type_3',
-  //           value: 'value_3',
-  //         },
-  //       ],
-  //       longDescription: {
-  //         values: [
-  //           {
-  //             locale: 'en-US',
-  //             value: 'Sample text in American English',
-  //           },
-  //           {
-  //             locale: 'fr-ca',
-  //             value: 'Sample text in French Canadian',
-  //           },
-  //           {
-  //             locale: 'en-br',
-  //             value: 'Sample text in American English',
-  //           },
-  //         ],
-  //       },
-  //       shortDescription: {
-  //         values: [
-  //           {
-  //             locale: 'en-US',
-  //             value: 'Sample text in American English',
-  //           },
-  //           {
-  //             locale: 'fr-ca',
-  //             value: 'Sample text in French Canadian',
-  //           },
-  //           {
-  //             locale: 'en-br',
-  //             value: 'Sample text in American English',
-  //           },
-  //         ],
-  //       },
-  //       merchandiseCategory: {
-  //         nodeId: '1-846-188-450',
-  //       },
-  //       alternateCategories: [
-  //         {
-  //           nodeId: '1-846-188-450',
-  //         },
-  //       ],
-  //       status: 'ACTIVE',
-  //       departmentId: '783497',
-  //       nonMerchandise: null,
-  //       familyCode: '732897',
-  //       referenceId: '832022',
-  //       manufacturerCode: '46743234',
-  //       externalIdentifiers: [
-  //         {
-  //           type: 'NACS_CODE',
-  //           value: '3031',
-  //         },
-  //       ],
-  //       posNumber: 'String',
-  //       dynamicAttributes: [
-  //         {
-  //           type: 'String',
-  //           attributes: [
-  //             {
-  //               key: 'key',
-  //               value: 'value',
-  //               localizedValue: {
-  //                 values: [
-  //                   {
-  //                     locale: 'en-US',
-  //                     value: 'sample text',
-  //                   },
-  //                   {
-  //                     locale: 'fr-ca',
-  //                     value: 'Sample text in French Canadian',
-  //                   },
-  //                 ],
-  //               },
-  //             },
-  //           ],
-  //         },
-  //       ],
-  //     });
-}
+
+  "version": number;
+  "packageIdentifiers": [{
+  "type": string;
+  "value": number}];
+  "longDescription": {
+  "values": [{
+  "locale": string;
+  "value": string }]};
+  "shortDescription": {
+  "values": [{
+  "locale": string;
+  "value": string}]};
+  "merchandiseCategory": {
+  "nodeId": "1-846-188-450"};
+  "alternateCategories": [{
+  "nodeId": "1-846-188-450"}];
+  "status": string;
+  "departmentId": number;
+  "nonMerchandise": null;
+  "familyCode": number;
+  "referenceId": number;
+  "manufacturerCode": number;
+  "externalIdentifiers": [{
+  "type": string;
+  "value": number}];
+  "posNumber": string;
+  "sourceSystem": {
+  "createdBy": string;
+  "modifiedBy": string};
+  "dynamicAttributes": [{
+  "type": string;
+  "attributes": [{
+  "key": string;
+  "value": number;
+  "localizedValue": {
+  "values": [{
+  "locale": string;
+  "value": string}]}}]}]}
