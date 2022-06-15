@@ -12,7 +12,7 @@ export class CatalogClient {
     private config: ConfigService,
   ) {}
 
-  async addCatalogItem(): Promise<Observable<AxiosResponse<any>>> {
+  async createCatalogItem(itemCode: string): Promise<Observable<AxiosResponse<any>>> {
     const data = JSON.stringify({
       version: 1,
       packageIdentifiers: [
@@ -100,21 +100,22 @@ export class CatalogClient {
     });
 
     const date = new Date();
-
+    //console.log(this.config.get('USERNAME'));
     return await this.httpService
-      .put('https://api.ncr.com/catalog/v2/items/itemObject', data, {
+      .put(`https://api.ncr.com/catalog/v2/items/${itemCode}`, data, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Basic ${Base64.encode(
             `${this.config.get('USERNAME')}:${this.config.get('PASSWORD')}`,
           )}`,
-          'nep-organization': 'test-drive-805358e9d70149ddba3df',
+          'nep-organization': 'test-drive-17dda190000840ec98776',
           Date: date.toUTCString(),
           Accept: 'application/json',
           'Accept-Language': 'en-us',
         },
       })
       .pipe(map((response) => response.data));
+      
   }
 
   updateCatalogItem(id: number) {
@@ -129,13 +130,13 @@ export class CatalogClient {
     const date = new Date();
 
     return await this.httpService
-      .get('https://api.ncr.com/catalog/v2/items/itemObject', {
+      .get('https://api.ncr.com/catalog/v2/items/please3', {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Basic ${Base64.encode(
             `${this.config.get('USERNAME')}:${this.config.get('PASSWORD')}`,
           )}`,
-          'nep-organization': 'test-drive-805358e9d70149ddba3df',
+          'nep-organization': 'test-drive-17dda190000840ec98776',
           Date: date.toUTCString(),
           Accept: 'application/json',
           'Accept-Language': 'en-us',
