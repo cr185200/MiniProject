@@ -51,6 +51,25 @@ export class CatalogClient {
       .pipe(map((response) => response.data));
   } // Get All Items
 
+  async getItem(itemCode: string): Promise<Observable<AxiosResponse<any>>> {
+    const date = new Date();
+    return await this.httpService
+      .get(`https://api.ncr.com/catalog/v2/items/${itemCode}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${Base64.encode(
+            `${this.config.get('USERNAME')}:${this.config.get('PASSWORD')}`,
+          )}`,
+          'nep-organization': 'test-drive-17dda190000840ec98776',
+          Date: date.toUTCString(),
+          Accept: 'application/json',
+          'Accept-Language': 'en-us',
+        },
+      })
+      .pipe(map((response) => response.data));
+  } // Get All Items
+
+
   deleteCatalogItem(id: number) {
     return 'test line';
   }

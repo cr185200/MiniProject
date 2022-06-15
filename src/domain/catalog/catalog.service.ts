@@ -12,4 +12,8 @@ export class CatalogService {
     getAllItems() {
         return this.catalogClient.getAllItems();
     }
+
+    getItem(itemCode: string) {
+        return this.catalogClient.getItem(itemCode);
+    }
 } // catalog service 

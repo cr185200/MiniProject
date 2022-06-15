@@ -17,4 +17,9 @@ export class CatalogController {
         return this.catalogService.getAllItems();
     }
 
+    @Get('/getItem/:itemCode')
+    getItem(@Param('itemCode') itemCode: string){
+        return this.catalogService.getItem(itemCode);
+    }
+
 } // Catalog Controller
