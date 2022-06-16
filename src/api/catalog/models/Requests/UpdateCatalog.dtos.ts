@@ -8,12 +8,13 @@ import {
   SourceSystemData,
 } from 'src/api/types';
 
-export class CreateCatalogDto {
+export class UpdateCatalogRequestDto {
+  itemCode: string;
   version: number;
-  packageIdentifiers: PackageIdentifierDetails[];
+  packageIdentifiers?: PackageIdentifierDetails[];
   longDescription?: LongDescription;
-  shortDescription: ShortDescription;
-  merchandiseCategory: NodeIdData;
+  shortDescription?: ShortDescription;
+  merchandiseCategory?: NodeIdData;
   alternateCategories?: NodeIdData[];
   status:
     | 'INACTIVE'
@@ -22,8 +23,8 @@ export class CreateCatalogDto {
     | 'SEASONAL'
     | 'TO_DISCONTINUE'
     | 'UNAUTHORIZED';
-  departmentId: string;
-  nonMerchandise: boolean;
+  departmentId?: string;
+  nonMerchandise?: boolean;
   familyCode?: string;
   referenceId?: string;
   manufacturerCode?: string;

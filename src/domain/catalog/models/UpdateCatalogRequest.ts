@@ -8,7 +8,8 @@ import {
   SourceSystemData,
 } from 'src/api/types';
 
-export class CreateCatalogDto {
+export class UpdateCatalogRequest {
+  itemCode: string;
   version: number;
   packageIdentifiers: PackageIdentifierDetails[];
   longDescription?: LongDescription;
