@@ -3,10 +3,11 @@ import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { CatalogClient } from './catalog/catalogClient';
 import { ItemAvailabilityClient } from './itemavailability/itemavailabilityClient';
+import { BslService } from './bsl.service';
 
 @Module({
   exports: [CatalogClient, ItemAvailabilityClient, ConfigService, HttpModule],
   imports: [HttpModule], // importing Httpmodule and configservice worked but i dont know why
-  providers: [CatalogClient, ItemAvailabilityClient, ConfigService],
+  providers: [CatalogClient, ItemAvailabilityClient, ConfigService, BslService],
 })
 export class UtilsModule {}

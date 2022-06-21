@@ -7,15 +7,19 @@ import { ItemAvailabilityClient } from 'src/utils/itemavailability/itemavailabil
 export class ItemavailabilityService {
   constructor(private itemAvailabilityClient: ItemAvailabilityClient) {}
 
-  setItemAvailability(
-    id: string,
-    itemCode: string,
-    itemAvailabilityDto: ItemAvailabilityDto,
-  ) {
-    return this.itemAvailabilityClient.setItemAvailability(
-      id,
-      itemCode,
-      itemAvailabilityDto,
-    );
+  setItemAvailability(itemCode: string) {
+    return this.itemAvailabilityClient.setItemAvailability(itemCode);
+  }
+
+  getAllItemAvailability() {
+    return this.itemAvailabilityClient.getAllItemAvailability();
+  }
+
+  getItemAvailability(id: string) {
+    return this.itemAvailabilityClient.getItemAvailability(id);
+  }
+
+  sendSMS() {
+    return this.itemAvailabilityClient.sendSMS();
   }
 }

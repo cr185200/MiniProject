@@ -1,3 +1,4 @@
+import { IsNumber } from 'class-validator';
 import {
   DynamicAttributes,
   ExternalIdentifier,
@@ -9,6 +10,7 @@ import {
 } from 'src/api/types';
 
 export class CreateCatalogDto {
+  @IsNumber()
   version: number;
   packageIdentifiers: PackageIdentifierDetails[];
   longDescription?: LongDescription;
