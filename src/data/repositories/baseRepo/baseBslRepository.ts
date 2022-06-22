@@ -21,7 +21,7 @@ export class BaseBslRepository {
       secretKey: this.config.get('SECRETKEY'),
       date: date,
       sharedKey: this.config.get('SHAREDKEY'),
-      nepOrganization: this.config.get('nepOrganization'),
+      nepOrganization: this.config.get('ORG'),
       contentType: 'application/json',
       httpMethod: httpMethod,
       requestURL: requestURL,
