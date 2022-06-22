@@ -1,4 +1,4 @@
-import { IsNumber } from 'class-validator';
+import { IsNumber, IsNotEmpty, IsNumberString } from 'class-validator';
 import {
   DynamicAttributes,
   ExternalIdentifier,

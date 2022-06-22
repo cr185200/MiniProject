@@ -6,8 +6,11 @@ import { CreateCatalogRequestDto } from './models/CreateCatalogRequest';
 export class CatalogService {
   constructor(private catalogClient: CatalogClient) {}
 
-  createItem(itemCode: string, CreateCatalogRequest: CreateCatalogRequestDto) {
-    return this.catalogClient.createItem(itemCode, CreateCatalogRequest);
+  async createItem(
+    itemCode: string,
+    CreateCatalogRequest: CreateCatalogRequestDto,
+  ) {
+    return await this.catalogClient.createItem(itemCode, CreateCatalogRequest);
   }
 
   getAllItems() {

@@ -9,6 +9,7 @@ import {
 } from 'src/api/types';
 
 export class CreateCatalogRequestDto {
+  // dont call request // create catalog item dto
   version: number;
   packageIdentifiers: PackageIdentifierDetails[];
   longDescription?: LongDescription;

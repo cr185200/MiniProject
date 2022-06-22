@@ -17,11 +17,11 @@ export class CatalogController {
 
   @Put('/createItem/:itemCode')
   //@UsePipes(ValidationPipe)
-  createItem(
+  async createItem(
     @Param('itemCode') itemCode: string,
     @Body() CreateCatalogDto: CreateCatalogDto,
   ) {
-    return this.catalogService.createItem(itemCode, CreateCatalogDto);
+    return await this.catalogService.createItem(itemCode, CreateCatalogDto);
   }
 
   @Get('/getItems/')
