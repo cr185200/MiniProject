@@ -3,12 +3,12 @@ import { AxiosResponse } from 'axios';
 import { ConfigService } from '@nestjs/config';
 import { Observable } from 'rxjs';
 import { BslCatalogItem } from '../entities/bslCatalogItem';
-import { BslRepository } from './baseBslRepository';
+import { BaseBslRepository } from './baseRepo/baseBslRepository';
 
 @Injectable()
 export class BslCatalogRepository {
   constructor(
-    private bsl: BslRepository,
+    private bsl: BaseBslRepository,
     private config: ConfigService,
   ) {}
 

@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
+import { RepositoriesModule } from 'src/data/repositories/repositories.module';
 import { CatalogService } from './catalog.service';
-import { BslCatalogRepository } from 'src/data/repositories/bslCatalogRepository';
 
 @Module({
   providers: [CatalogService],
   exports: [CatalogService],
-  imports: [BslCatalogRepository],
+  imports: [RepositoriesModule],
 })
 export class CatalogModuleDomain {}

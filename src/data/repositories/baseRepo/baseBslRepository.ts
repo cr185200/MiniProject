@@ -3,12 +3,11 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { AxiosResponse } from 'axios';
 import { map, Observable, switchMap } from 'rxjs';
-import { BslCatalogItem } from '../entities/bslCatalogItem';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const hmac = require('./hmac');
+import { BslCatalogItem } from '../../entities/bslCatalogItem';
+const hmac = require('../../../utils/hmac');
 
 @Injectable()
-export class BslRepository {
+export class BaseBslRepository {
   constructor(
     private config: ConfigService,
     private httpService: HttpService,
