@@ -7,13 +7,17 @@ import { BaseBslRepository } from './baseRepo/baseBslRepository';
 
 @Injectable()
 export class BslCatalogRepository {
-  constructor(
-    private bsl: BaseBslRepository,
-    private config: ConfigService,
-  ) {}
+  constructor(private bsl: BaseBslRepository, private config: ConfigService) {}
 
-  async createItem(itemCode: string, bsl: BslCatalogItem): Promise<Observable<AxiosResponse<any>>> {
-    return await this.bsl.bslHttp('PUT', this.config.get('CATALOGURL') + itemCode, bsl);
+  async createItem(
+    itemCode: string,
+    bsl: BslCatalogItem,
+  ): Promise<Observable<AxiosResponse<any>>> {
+    return await this.bsl.bslHttp(
+      'PUT',
+      this.config.get('CATALOGURL') + itemCode,
+      bsl,
+    );
   } // create Items
 
   async getAllItems(): Promise<Observable<AxiosResponse<any>>> {
@@ -21,10 +25,20 @@ export class BslCatalogRepository {
   } // Get All Items
 
   async getItem(itemCode: string): Promise<Observable<AxiosResponse<any>>> {
-    return await this.bsl.bslHttp('GET', this.config.get('CATALOGURL') + itemCode);
+    return await this.bsl.bslHttp(
+      'GET',
+      this.config.get('CATALOGURL') + itemCode,
+    );
   } // Get One Items
 
-  async deleteItem(itemCode: string, bsl: BslCatalogItem): Promise<Observable<AxiosResponse<any>>> {
-    return await this.bsl.bslHttp('PUT', this.config.get('CATALOGURL') + itemCode, bsl);
+  async deleteItem(
+    itemCode: string,
+    bsl: BslCatalogItem,
+  ): Promise<Observable<AxiosResponse<any>>> {
+    return await this.bsl.bslHttp(
+      'PUT',
+      this.config.get('CATALOGURL') + itemCode,
+      bsl,
+    );
   } // Set Status Inactive
 }

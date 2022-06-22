@@ -9,4 +9,3 @@ import { BslRepositoryModule } from './baseRepo/BslRepository.module';
   providers: [BslCatalogRepository, BslItemAvailabilityRepository],
 })
 export class RepositoriesModule {}
-

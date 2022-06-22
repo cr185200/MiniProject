@@ -3,9 +3,7 @@ import { BslItemAvailabilityRepository } from 'src/data/repositories/bslItemAvai
 
 @Injectable()
 export class ItemAvailabilityService {
-  constructor(
-    private itemAvailabilityClient: BslItemAvailabilityRepository,
-  ) {}
+  constructor(private itemAvailabilityClient: BslItemAvailabilityRepository) {}
 
   async getItemAvailability(id: string) {
     return await this.itemAvailabilityClient.getItemAvailability(id);

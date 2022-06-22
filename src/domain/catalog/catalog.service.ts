@@ -5,9 +5,7 @@ import { BslCatalogItem } from 'src/data/entities/bslCatalogItem';
 
 @Injectable()
 export class CatalogService {
-  constructor(
-    private catalogClient: BslCatalogRepository,
-  ) {}
+  constructor(private catalogClient: BslCatalogRepository) {}
 
   format(bsl: CatalogItem, itemCode: string): BslCatalogItem {
     return {
@@ -78,11 +76,17 @@ export class CatalogService {
   }
 
   async createItem(dto: CatalogItem) {
-    return await this.catalogClient.createItem(dto.itemCode, this.format(dto, dto.itemCode));
+    return await this.catalogClient.createItem(
+      dto.itemCode,
+      this.format(dto, dto.itemCode),
+    );
   }
 
   async deleteCatalogItem(dto: CatalogItem) {
-    return await this.catalogClient.deleteItem(dto.itemCode, this.format(dto, dto.itemCode));
+    return await this.catalogClient.deleteItem(
+      dto.itemCode,
+      this.format(dto, dto.itemCode),
+    );
   }
 
   async getAllItems() {

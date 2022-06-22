@@ -13,7 +13,7 @@ export class CatalogController {
 
   @Delete('/delete')
   async deleteCatalogItem(@Body() dto: CatalogItemDto) {
-      return await this.catalogService.deleteCatalogItem(dto);
+    return await this.catalogService.deleteCatalogItem(dto);
   }
 
   @Get('/getAll')
