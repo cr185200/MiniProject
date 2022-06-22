@@ -17,13 +17,13 @@ export class BaseBslRepository {
     const date = new Date();
 
     const options = {
-        secretKey: this.config.get('SECRETKEY'),
-        date: date,
-        sharedKey: this.config.get('SHAREDKEY'),
-        nepOrganization: this.config.get('nepOrganization'),
-        contentType: 'application/json',
-        httpMethod:  httpMethod,
-        requestURL: requestURL,
+      secretKey: this.config.get('SECRETKEY'),
+      date: date,
+      sharedKey: this.config.get('SHAREDKEY'),
+      nepOrganization: this.config.get('NEP'),
+      contentType: 'application/json',
+      httpMethod: httpMethod,
+      requestURL: requestURL,
     };
     const requestHeaders = {
         'Content-Type': options.contentType,

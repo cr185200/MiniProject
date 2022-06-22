@@ -36,12 +36,15 @@
     "crypto-js": "^4.1.1",
     "fetch": "^1.1.0",
     "graphql": "^16.5.0",
+    "graphql-codegen": "^0.4.0",
+    "graphql-scalars": "^1.17.0",
     "graphql-tools": "^8.2.12",
     "js-base64": "^3.7.2",
     "node-fetch": "^3.2.6",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",

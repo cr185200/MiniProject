@@ -1,0 +1,12 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Availability {
+  availableForSale: Boolean!
+}
+
+type Query {
+  getItemAvailability(id: String!): Availability!
+  setItemAvailability(id: String!): String!
+}
