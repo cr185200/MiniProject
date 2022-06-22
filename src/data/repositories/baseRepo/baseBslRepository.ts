@@ -40,6 +40,7 @@ export class BaseBslRepository {
     httpMethod: string,
     requestURL: string,
     dto?: BslCatalogItem,
+    id?: string
   ): Promise<Observable<AxiosResponse<any>>> {
     if (httpMethod == 'PUT') {
       return await this.httpService
@@ -55,7 +56,7 @@ export class BaseBslRepository {
         .pipe(map((response) => response.data));
     } else if (httpMethod == 'POST') {
         return await this.httpService
-            .post(`https://us-central1-true-upgrade-353616.cloudfunctions.net/send-email?id=${'waffles'}&avail=${'unavailable'}`)
+            .post(`https://us-central1-true-upgrade-353616.cloudfunctions.net/send-email?id=${id}&avail=${'unavailable'}`)
             .pipe(switchMap(() => this.httpService
             .put(requestURL,
               { availableForSale: false },

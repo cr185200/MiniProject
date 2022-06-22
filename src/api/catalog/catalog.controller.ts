@@ -12,17 +12,17 @@ export class CatalogController {
   }
 
   @Delete('/delete')
-  deleteCatalogItem(@Body() dto: CatalogItemDto) {
-      return this.catalogService.deleteCatalogItem(dto);
+  async deleteCatalogItem(@Body() dto: CatalogItemDto) {
+      return await this.catalogService.deleteCatalogItem(dto);
   }
 
   @Get('/getAll')
-  getAllItems() {
-    return this.catalogService.getAllItems();
+  async getAllItems() {
+    return await this.catalogService.getAllItems();
   }
 
   @Get('/get')
-  getItem(@Body() dto: CatalogItemDto) {
-    return this.catalogService.getItem(dto);
+  async getItem(@Body() dto: CatalogItemDto) {
+    return await this.catalogService.getItem(dto);
   }
 } // Catalog Controller

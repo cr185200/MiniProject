@@ -9,23 +9,87 @@ export class CatalogService {
     private catalogClient: BslCatalogRepository,
   ) {}
 
-  format(dto: CatalogItem): BslCatalogItem {
-    return;
+  format(bsl: CatalogItem, itemCode: string): BslCatalogItem {
+    return {
+      version: bsl.version,
+      packageIdentifiers: [
+        {
+          type: `${itemCode}_type`,
+          value: `${itemCode}_value`,
+        },
+      ],
+      longDescription: {
+        values: [
+          {
+            locale: 'en-US',
+            value: `This item is called ${itemCode}`,
+          },
+        ],
+      },
+      shortDescription: {
+        values: [
+          {
+            locale: 'en-US',
+            value: `This item is called ${itemCode}`,
+          },
+        ],
+      },
+      merchandiseCategory: {
+        nodeId: '1-846-188-450',
+      },
+      alternateCategories: [
+        {
+          nodeId: '1-846-188-450',
+        },
+      ],
+      status: `${bsl.status}`,
+      departmentId: '123456',
+      nonMerchandise: null,
+      familyCode: '732897',
+      referenceId: '832022',
+      manufacturerCode: '46743234',
+      externalIdentifiers: [
+        {
+          type: 'NACS_CODE',
+          value: '3031',
+        },
+      ],
+      posNumber: 'String',
+      dynamicAttributes: [
+        {
+          type: 'String',
+          attributes: [
+            {
+              key: 'key',
+              value: 'value',
+              localizedValue: {
+                values: [
+                  {
+                    locale: 'en-US',
+                    value: 'sample text',
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      ],
+    };
   }
 
   async createItem(dto: CatalogItem) {
-    return await this.catalogClient.createItem(dto.itemCode, this.format(dto));
+    return await this.catalogClient.createItem(dto.itemCode, this.format(dto, dto.itemCode));
   }
 
   async deleteCatalogItem(dto: CatalogItem) {
-    return this.catalogClient.deleteItem(dto.itemCode, this.format(dto));
+    return await this.catalogClient.deleteItem(dto.itemCode, this.format(dto, dto.itemCode));
   }
 
-  getAllItems() {
-    return this.catalogClient.getAllItems();
+  async getAllItems() {
+    return await this.catalogClient.getAllItems();
   }
 
-  getItem(dto: CatalogItem) {
-    return this.catalogClient.getItem(dto.itemCode);
+  async getItem(dto: CatalogItem) {
+    return await this.catalogClient.getItem(dto.itemCode);
   }
 } // catalog service

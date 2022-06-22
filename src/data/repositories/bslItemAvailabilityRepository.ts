@@ -13,14 +13,14 @@ export class BslItemAvailabilityRepository {
   ) {}
   
   async getItemAvailability(id: string): Promise<Observable<AxiosResponse<any>>> {
-    return await this.bsl.bslHttp('GET', this.config.get('CATALOGURL') + id);
+    return await this.bsl.bslHttp('GET', this.config.get('ITEMAVAILURL') + id);
   } // Get One Item
 
   async getAllItemAvailability(): Promise<Observable<AxiosResponse<any>>> {
-    return await this.bsl.bslHttp('GET', this.config.get('CATALOGURL'));
+    return await this.bsl.bslHttp('GET', this.config.get('ITEMAVAILURL'));
   } // Get All Items
 
   async setItemAvailability(id: string): Promise<Observable<AxiosResponse<any>>> {
-    return await this.bsl.bslHttp('POST', this.config.get('CATALOGURL') + id);
+    return await this.bsl.bslHttp('POST', this.config.get('ITEMAVAILURL') + id, undefined, id);
   } // Update Item Availability
 }

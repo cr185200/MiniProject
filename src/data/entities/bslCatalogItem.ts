@@ -1,85 +1,34 @@
-export class BslCatalogItem {
-    version: 2
-    packageIdentifiers: [
-      {
-        type: 'Type_1',
-        value: 'value_1',
-      },
-    ]
-    longDescription: {
-      values: [
-        {
-          locale: 'en-US',
-          value: 'Sample text in American English',
-        },
-        {
-          locale: 'fr-ca',
-          value: 'Sample text in French Canadian',
-        },
-        {
-          locale: 'en-br',
-          value: 'Sample text in American English',
-        },
-      ],
-    }
-    shortDescription: {
-      values: [
-        {
-          locale: 'en-US',
-          value: 'Sample text in American English',
-        },
-        {
-          locale: 'fr-ca',
-          value: 'Sample text in French Canadian',
-        },
-        {
-          locale: 'en-br',
-          value: 'Sample text in American English',
-        },
-      ],
-    }
-    merchandiseCategory: {
-      nodeId: '1-846-188-450',
-    }
-    alternateCategories: [
-      {
-        nodeId: '1-846-188-450',
-      },
-    ]
-    status: 'INACTIVE'
-    departmentId: '783497'
-    nonMerchandise: null
-    familyCode: '732897'
-    referenceId: '832022'
-    manufacturerCode: '46743234'
-    externalIdentifiers: [
-      {
-        type: 'NACS_CODE',
-        value: '3031',
-      },
-    ]
-    posNumber: 'String'
-    dynamicAttributes: [
-      {
-        type: 'String',
-        attributes: [
-          {
-            key: 'key',
-            value: 'value',
-            localizedValue: {
-              values: [
-                {
-                  locale: 'en-US',
-                  value: 'sample text',
-                },
-                {
-                  locale: 'fr-ca',
-                  value: 'Sample text in French Canadian',
-                },
-              ],
-            },
-          },
-        ],
-      },
-    ]
-  }
+import {
+  DynamicAttributes,
+  ExternalIdentifier,
+  LongDescription,
+  NodeIdData,
+  PackageIdentifierDetails,
+  ShortDescription,
+  SourceSystemData,
+} from 'src/data/entities/types';
+
+export interface BslCatalogItem {
+  version: number;
+  packageIdentifiers: PackageIdentifierDetails[];
+  longDescription?: LongDescription;
+  shortDescription: ShortDescription;
+  merchandiseCategory: NodeIdData;
+  alternateCategories?: NodeIdData[];
+  status:
+    | 'INACTIVE'
+    | 'ACTIVE'
+    | 'DISCONTINUED'
+    | 'SEASONAL'
+    | 'TO_DISCONTINUE'
+    | 'UNAUTHORIZED';
+  departmentId: string;
+  nonMerchandise: boolean;
+  familyCode?: string;
+  referenceId?: string;
+  manufacturerCode?: string;
+  externalIdentifiers?: ExternalIdentifier[];
+  posNumber?: string;
+  sourceSystem?: SourceSystemData;
+  dynamicAttributes?: DynamicAttributes[];
+}

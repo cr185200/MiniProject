@@ -11,8 +11,8 @@ export class ItemAvailabilityService {
     return await this.itemAvailabilityClient.getItemAvailability(id);
   }
 
-  getAllItemAvailability() {
-    return this.itemAvailabilityClient.getAllItemAvailability();
+  async getAllItemAvailability() {
+    return await this.itemAvailabilityClient.getAllItemAvailability();
   }
 
   async setItemAvailability(id: string) {

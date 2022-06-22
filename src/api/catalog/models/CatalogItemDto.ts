@@ -1,21 +1,8 @@
-import {
-  DynamicAttributes,
-  ExternalIdentifier,
-  LongDescription,
-  NodeIdData,
-  PackageIdentifierDetails,
-  ShortDescription,
-  SourceSystemData,
-} from 'src/data/entities/types';
-
 export class CatalogItemDto {
   itemCode: string;
-  version: number;
-  packageIdentifiers: PackageIdentifierDetails[];
-  longDescription?: LongDescription;
-  shortDescription: ShortDescription;
-  merchandiseCategory: NodeIdData;
-  alternateCategories?: NodeIdData[];
+  version?: number;
+  longDescription?: string;
+  shortDescription?: string;
   status:
     | 'INACTIVE'
     | 'ACTIVE'
@@ -23,13 +10,4 @@ export class CatalogItemDto {
     | 'SEASONAL'
     | 'TO_DISCONTINUE'
     | 'UNAUTHORIZED';
-  departmentId: string;
-  nonMerchandise: boolean;
-  familyCode?: string;
-  referenceId?: string;
-  manufacturerCode?: string;
-  externalIdentifiers?: ExternalIdentifier[];
-  posNumber?: string;
-  sourceSystem?: SourceSystemData;
-  dynamicAttributes?: DynamicAttributes[];
 }
