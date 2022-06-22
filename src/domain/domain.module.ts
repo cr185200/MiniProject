@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { CatalogModuleDomain } from './catalog/catalog.module';
-import { ItemavailabilityModuleDomain } from './itemavailability/itemavailability.module';
+import { ItemAvailabilityModuleDomain } from './itemAvailability/itemAvailability.module';
 
 @Module({
-  imports: [CatalogModuleDomain, ItemavailabilityModuleDomain],
+  imports: [CatalogModuleDomain, ItemAvailabilityModuleDomain],
 })
 export class DomainModule {}

@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
-import { ItemAvailabilityClient } from 'src/utils/itemavailability/itemavailabilityClient';
-import { UtilsModule } from 'src/utils/utils.module';
-import { ItemavailabilityService } from './itemavailability.service';
+import { BslItemAvailabilityRepository } from 'src/data/repositories/bslItemAvailabilityRepository';
+import { ItemAvailabilityService } from './itemAvailability.service';
 
 @Module({
-  providers: [ItemavailabilityService],
-  imports: [UtilsModule],
-  exports: [ItemavailabilityService],
+  providers: [ItemAvailabilityService],
+  imports: [BslItemAvailabilityRepository],
+  exports: [ItemAvailabilityService],
 })
-export class ItemavailabilityModuleDomain {}
+export class ItemAvailabilityModuleDomain {}

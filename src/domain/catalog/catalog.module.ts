@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
 import { CatalogService } from './catalog.service';
-import { CatalogClient } from 'src/utils/catalog/catalogClient';
-import { UtilsModule } from 'src/utils/utils.module';
-import { DomainModule } from '../domain.module';
+import { BslCatalogRepository } from 'src/data/repositories/bslCatalogRepository';
 
 @Module({
   providers: [CatalogService],
   exports: [CatalogService],
-  imports: [UtilsModule],
+  imports: [BslCatalogRepository],
 })
 export class CatalogModuleDomain {}

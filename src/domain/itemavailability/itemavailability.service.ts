@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { stringify } from 'querystring';
-import { ItemAvailabilityDto } from 'src/api/itemavailability/models/Requests/SetItemAvailability.dto';
-import { ItemAvailabilityClient } from 'src/utils/itemavailability/itemavailabilityClient';
+import { BslItemAvailabilityRepository } from 'src/data/repositories/bslItemAvailabilityRepository';
 
 @Injectable()
-export class ItemavailabilityService {
-  constructor(private itemAvailabilityClient: ItemAvailabilityClient) {}
+export class ItemAvailabilityService {
+  constructor(
+    private itemAvailabilityClient: BslItemAvailabilityRepository,
+  ) {}
 
-  setItemAvailability(
-    id: string,
-    itemCode: string,
-    itemAvailabilityDto: ItemAvailabilityDto,
-  ) {
-    return this.itemAvailabilityClient.setItemAvailability(
-      id,
-      itemCode,
-      itemAvailabilityDto,
-    );
+  async getItemAvailability(id: string) {
+    return await this.itemAvailabilityClient.getItemAvailability(id);
+  }
+
+  getAllItemAvailability() {
+    return this.itemAvailabilityClient.getAllItemAvailability();
+  }
+
+  async setItemAvailability(id: string) {
+    return await this.itemAvailabilityClient.setItemAvailability(id);
   }
 }

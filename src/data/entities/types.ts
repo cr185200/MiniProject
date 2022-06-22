@@ -19,6 +19,7 @@ export interface NodeIdData {
 }
 
 export interface ExternalIdentifier {
+  
   type: 'NASC_CODE' | 'TENDER_ID';
   value: string;
 }

@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ItemavailabilityController } from './itemavailability.controller';
-import { ItemavailabilityModuleDomain } from 'src/domain/itemavailability/itemavailability.module';
+import { ItemAvailabilityController } from './itemAvailability.controller';
+import { ItemAvailabilityModuleDomain } from 'src/domain/itemAvailability/itemAvailability.module';
 
 @Module({
-  controllers: [ItemavailabilityController],
-  imports: [ItemavailabilityModuleDomain],
+  controllers: [ItemAvailabilityController],
+  imports: [ItemAvailabilityModuleDomain],
 })
-export class ItemavailabilityModule {}
+export class ItemAvailabilityModule {}

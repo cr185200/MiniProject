@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { CatalogModule } from './catalog/catalog.module';
-import { ItemavailabilityModule } from './itemavailability/itemavailability.module';
+import { ItemAvailabilityModule } from './itemavailability/itemAvailability.module';
 
 @Module({
-  imports: [CatalogModule, ItemavailabilityModule]
+  imports: [CatalogModule, ItemAvailabilityModule]
 })
 export class ApiModule {}

@@ -1,20 +1,31 @@
-import { Injectable, Param } from '@nestjs/common';
-import { CreateCatalogDto } from 'src/api/catalog/models/Requests/CreateCatalog.dto';
-import { CatalogClient } from 'src/utils/catalog/catalogClient';
-import { CreateCatalogRequestDto } from './models/CreateCatalogRequest';
+import { Injectable } from '@nestjs/common';
+import { CatalogItem } from 'src/domain/catalog/models/CatalogItem';
+import { BslCatalogRepository } from 'src/data/repositories/bslCatalogRepository';
+import { BslCatalogItem } from 'src/data/entities/bslCatalogItem';
+
 @Injectable()
 export class CatalogService {
-  constructor(private catalogClient: CatalogClient) {}
+  constructor(
+    private catalogClient: BslCatalogRepository,
+  ) {}
 
-  createItem(itemCode: string, CreateCatalogRequest: CreateCatalogRequestDto) {
-    return this.catalogClient.createItem(itemCode, CreateCatalogRequest);
+  format(dto: CatalogItem): BslCatalogItem {
+    return;
+  }
+
+  async createItem(dto: CatalogItem) {
+    return await this.catalogClient.createItem(dto.itemCode, this.format(dto));
+  }
+
+  async deleteCatalogItem(dto: CatalogItem) {
+    return this.catalogClient.deleteItem(dto.itemCode, this.format(dto));
   }
 
   getAllItems() {
     return this.catalogClient.getAllItems();
   }
 
-  getItem(itemCode: string) {
-    return this.catalogClient.getItem(itemCode);
+  getItem(dto: CatalogItem) {
+    return this.catalogClient.getItem(dto.itemCode);
   }
 } // catalog service

@@ -6,15 +6,15 @@ import {
   PackageIdentifierDetails,
   ShortDescription,
   SourceSystemData,
-} from 'src/api/types';
+} from 'src/data/entities/types';
 
-export class UpdateCatalogRequestDto {
+export class CatalogItem {
   itemCode: string;
   version: number;
-  packageIdentifiers?: PackageIdentifierDetails[];
+  packageIdentifiers: PackageIdentifierDetails[];
   longDescription?: LongDescription;
-  shortDescription?: ShortDescription;
-  merchandiseCategory?: NodeIdData;
+  shortDescription: ShortDescription;
+  merchandiseCategory: NodeIdData;
   alternateCategories?: NodeIdData[];
   status:
     | 'INACTIVE'
@@ -23,8 +23,8 @@ export class UpdateCatalogRequestDto {
     | 'SEASONAL'
     | 'TO_DISCONTINUE'
     | 'UNAUTHORIZED';
-  departmentId?: string;
-  nonMerchandise?: boolean;
+  departmentId: string;
+  nonMerchandise: boolean;
   familyCode?: string;
   referenceId?: string;
   manufacturerCode?: string;

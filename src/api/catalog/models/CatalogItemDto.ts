@@ -6,9 +6,9 @@ import {
   PackageIdentifierDetails,
   ShortDescription,
   SourceSystemData,
-} from 'src/api/types';
+} from 'src/data/entities/types';
 
-export class UpdateCatalogRequest {
+export class CatalogItemDto {
   itemCode: string;
   version: number;
   packageIdentifiers: PackageIdentifierDetails[];
