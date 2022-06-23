@@ -1,5 +1,4 @@
 import { Query, Args, Resolver } from '@nestjs/graphql';
-// import { Void } from 'graphql-scalars/mocks.d';
 import { CatalogService } from '../../domain/catalog/catalog.service';
 import { bslGet, bslGetAll, CatalogItem } from './models/catalog.model';
 
@@ -7,27 +6,27 @@ import { bslGet, bslGetAll, CatalogItem } from './models/catalog.model';
 export class CatalogGqlResolver {
   constructor(private catalogService: CatalogService) {}
 
-  @Query((returns) => bslGet)
+  @Query(() => bslGet)
   async getItem(@Args('dto', { type: () => CatalogItem }) dto: CatalogItem) {
     return await this.catalogService.getItem(dto);
   }
 
-  @Query((returns) => bslGetAll)
+  @Query(() => bslGetAll)
   async getAllItems() {
     return await this.catalogService.getAllItems();
   }
 
-  @Query((returns) => String)
+  @Query(() => String)
   async createItem(@Args('dto', { type: () => CatalogItem }) dto: CatalogItem) {
     return this.catalogService.createItem(dto);
   }
 
-  @Query((returns) => String)
+  @Query(() => String)
   async updateItem(@Args('dto', { type: () => CatalogItem }) dto: CatalogItem) {
     return this.catalogService.updateItem(dto);
   }
 
-  @Query((returns) => String)
+  @Query(() => String)
   async deleteCatalogItem(@Args('dto', { type: () => CatalogItem }) dto: CatalogItem) {
     return this.catalogService.deleteCatalogItem(dto);
   }

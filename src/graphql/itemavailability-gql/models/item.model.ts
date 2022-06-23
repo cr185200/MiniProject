@@ -13,6 +13,7 @@ export class Availability {
 export class PageContent {
   @Field({nullable: true})
   itemCode: string;
+  
   @Field({nullable: true})
   enterpriseUnitId: string;
 }
@@ -22,12 +23,16 @@ export class PageContent {
 export class All {
     @Field()
     lastPage: boolean;
+
     @Field()
     pageNumber: number;
+
     @Field()
     totalPages: number;
+
     @Field()
     totalResults: number;
+
     @Field(() => [PageContent])
     pageContent: PageContent[];
 }

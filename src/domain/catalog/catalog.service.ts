@@ -9,6 +9,7 @@ export class CatalogService {
     private catalogClient: BslCatalogRepository,
   ) {}
 
+  // Dto -> return type
   format(bsl: CatalogItem, itemCode: string): BslCatalogItem {
     return {
       version: bsl.version,
