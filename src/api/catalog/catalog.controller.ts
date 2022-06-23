@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Delete, Body } from '@nestjs/common';
+import { Controller, Post, Get, Delete, Body, Put } from '@nestjs/common';
 import { CatalogItemDto } from 'src/api/catalog/models/CatalogItemDto';
 import { CatalogService } from 'src/domain/catalog/catalog.service';
 
@@ -9,6 +9,11 @@ export class CatalogController {
   @Post('/create')
   async createItem(@Body() dto: CatalogItemDto) {
     return await this.catalogService.createItem(dto);
+  }
+
+  @Put('/update')
+  async updateItem(@Body() dto: CatalogItemDto) {
+    return await this.catalogService.updateItem(dto);
   }
 
   @Delete('/delete')

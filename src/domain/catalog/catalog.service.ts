@@ -81,6 +81,10 @@ export class CatalogService {
     return await this.catalogClient.createItem(dto.itemCode, this.format(dto, dto.itemCode));
   }
 
+  async updateItem(dto: CatalogItem) {
+    return await this.catalogClient.updateItem(dto.itemCode, this.format(dto, dto.itemCode));
+  }
+
   async deleteCatalogItem(dto: CatalogItem) {
     return await this.catalogClient.deleteItem(dto.itemCode, this.format(dto, dto.itemCode));
   }

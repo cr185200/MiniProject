@@ -105,6 +105,7 @@ type Query {
   getItem(dto: CatalogItem!): bslGet!
   getAllItems: bslGetAll!
   createItem(dto: CatalogItem!): String!
+  updateItem(dto: CatalogItem!): String!
   deleteCatalogItem(dto: CatalogItem!): String!
 }
 

@@ -16,6 +16,10 @@ export class BslCatalogRepository {
     return await this.bsl.bslHttp('PUT', this.config.get('CATALOGURL') + itemCode, bsl);
   } // create Items
 
+  async updateItem(itemCode: string, bsl: BslCatalogItem): Promise<Observable<AxiosResponse<any>>> {
+    return await this.bsl.bslHttp('PUT', this.config.get('CATALOGURL') + itemCode, bsl);
+  } // update Items
+
   async getAllItems(): Promise<Observable<AxiosResponse<any>>> {
     return await this.bsl.bslHttp('GET', this.config.get('CATALOGURL'));
   } // Get All Items

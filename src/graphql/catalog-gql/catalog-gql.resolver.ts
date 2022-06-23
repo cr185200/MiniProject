@@ -23,6 +23,11 @@ export class CatalogGqlResolver {
   }
 
   @Query((returns) => String)
+  async updateItem(@Args('dto', { type: () => CatalogItem }) dto: CatalogItem) {
+    return this.catalogService.updateItem(dto);
+  }
+
+  @Query((returns) => String)
   async deleteCatalogItem(@Args('dto', { type: () => CatalogItem }) dto: CatalogItem) {
     return this.catalogService.deleteCatalogItem(dto);
   }
