@@ -89,6 +89,13 @@ export class CatalogService {
     );
   }
 
+  async updateCatalogItem(dto: CatalogItem) {
+    return await this.catalogClient.updateItem(
+      dto.itemCode,
+      this.format(dto, dto.itemCode),
+    );
+  }
+
   async getAllItems() {
     return await this.catalogClient.getAllItems();
   }

@@ -40,5 +40,16 @@ export class BslCatalogRepository {
       this.config.get('CATALOGURL') + itemCode,
       bsl,
     );
-  } // Set Status Inactive
+  }
+
+  async updateItem(
+    itemCode: string,
+    bsl: BslCatalogItem,
+  ): Promise<Observable<AxiosResponse<any>>> {
+    return await this.bsl.bslHttp(
+      'PUT',
+      this.config.get('CATALOGURL') + itemCode,
+      bsl,
+    );
+  } /// Set Status Inactive
 }

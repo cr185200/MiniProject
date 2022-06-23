@@ -6,6 +6,113 @@ type Availability {
   availableForSale: Boolean!
 }
 
+type PageContent {
+  itemCode: String
+  enterpriseUnitId: String
+}
+
+type AllReturn {
+  lastPage: Boolean!
+  pageNumber: Float!
+  totalPages: Float!
+  totalResults: Float!
+  pageContent: [PageContent!]!
+}
+
+type LongDescription {
+  values: [DescriptionValues!]!
+}
+
+type ShortDescription {
+  values: [DescriptionValues!]!
+}
+
+type DescriptionValues {
+  locale: String!
+  value: String!
+}
+
+type PackageIdentifierDetails {
+  value: String!
+  type: String!
+}
+
+type NodeIdData {
+  nodeId: String!
+}
+
+type ExternalIdentifier {
+  type: String!
+  value: String!
+}
+
+type SourceSystemData {
+  createdBy: String!
+  modifiedBy: String!
+}
+
+type LocalizedValue {
+  values: [DescriptionValues!]!
+}
+
+type Attributes {
+  key: String!
+  value: String!
+  localizedValue: LocalizedValue!
+}
+
+type DynamicAttributes {
+  type: String!
+  attributes: [Attributes!]!
+}
+
+type ItemId {
+  itemCode: String!
+}
+
+type BslGet {
+  version: Float!
+  packageIdentifiers: [PackageIdentifierDetails!]!
+  longDescription: LongDescription
+  shortDescription: ShortDescription!
+  merchandiseCategory: NodeIdData!
+  alternateCategories: [NodeIdData!]
+  status: String!
+  departmentId: String!
+  nonMerchandise: Boolean!
+  familyCode: String
+  referenceId: String
+  manufacturerCode: String
+  externalIdentifiers: [ExternalIdentifier!]
+  posNumber: String
+  sourceSystem: SourceSystemData
+  dynamicAttributes: [DynamicAttributes!]
+  itemId: ItemId
+}
+
+type BslGetAll {
+  lastPage: Boolean!
+  pageNumber: Float!
+  totalPages: Float!
+  totalResults: Float!
+  pageContent: [BslGet!]!
+}
+
 type Query {
   getItemAvailability(id: String!): Availability!
+  getAllItemAvailability: AllReturn!
+  setItemAvailability(id: String!): String!
+  createItem(dto: CatalogItem!): String!
+  getItem(dto: CatalogItem!): BslGet!
+  deleteItem(dto: CatalogItem!): String!
+  updateItem(dto: CatalogItem!): String!
+  getAllItems: BslGetAll!
+}
+
+input CatalogItem {
+  itemCode: String!
+  version: Float
+  longDescription: String
+  shortDescription: String
+  status: String!
 }
