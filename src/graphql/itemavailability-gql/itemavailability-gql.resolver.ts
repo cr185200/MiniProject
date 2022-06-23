@@ -1,7 +1,7 @@
 import { Query, Args, Resolver } from '@nestjs/graphql';
 // import { Void } from 'graphql-scalars/mocks.d';
 import { ItemAvailabilityService } from '../../domain/itemAvailability/itemAvailability.service';
-import { Availability } from './models/item.model';
+import { All, Availability } from './models/item.model';
 
 @Resolver()
 export class ItemavailabilityGqlResolver {
@@ -10,6 +10,11 @@ export class ItemavailabilityGqlResolver {
   @Query((returns) => Availability)
   async getItemAvailability(@Args('id', { type: () => String }) id: string) {
     return await this.itemAvailabilityService.getItemAvailability(id);
+  }
+
+  @Query((returns) => All)
+  async getAllItemAvailability() {
+    return await this.itemAvailabilityService.getAllItemAvailability();
   }
 
   @Query((returns) => String)

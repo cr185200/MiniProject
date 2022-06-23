@@ -7,3 +7,27 @@ export class Availability {
   @Field()
   availableForSale: boolean;
 }
+
+@Entity()
+@ObjectType()
+export class PageContent {
+  @Field({nullable: true})
+  itemCode: string;
+  @Field({nullable: true})
+  enterpriseUnitId: string;
+}
+
+@Entity()
+@ObjectType()
+export class All {
+    @Field()
+    lastPage: boolean;
+    @Field()
+    pageNumber: number;
+    @Field()
+    totalPages: number;
+    @Field()
+    totalResults: number;
+    @Field(() => [PageContent])
+    pageContent: PageContent[];
+}

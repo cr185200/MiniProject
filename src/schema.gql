@@ -2,11 +2,116 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type LongDescription {
+  values: [DescriptionValues!]!
+}
+
+type ShortDescription {
+  values: [DescriptionValues!]!
+}
+
+type DescriptionValues {
+  locale: String!
+  value: String!
+}
+
+type PackageIdentifierDetails {
+  value: String!
+  type: String!
+}
+
+type NodeIdData {
+  nodeId: String!
+}
+
+type ExternalIdentifier {
+  type: String!
+  value: String!
+}
+
+type SourceSystemData {
+  createdBy: String!
+  modifiedBy: String!
+}
+
+type DynamicAttributes {
+  type: String!
+  attributes: [Attributes!]!
+}
+
+type LocalizedValue {
+  values: [DescriptionValues!]!
+}
+
+type ItemCode {
+  itemCode: String!
+}
+
+type Attributes {
+  key: String!
+  value: String!
+  localizedValue: LocalizedValue!
+}
+
+type bslGet {
+  version: Float!
+  itemId: ItemCode!
+  packageIdentifiers: [PackageIdentifierDetails!]!
+  longDescription: LongDescription
+  shortDescription: ShortDescription!
+  merchandiseCategory: NodeIdData!
+  alternateCategories: [NodeIdData!]
+  status: String!
+  departmentId: String!
+  nonMerchandise: Boolean!
+  familyCode: String
+  referenceId: String
+  manufacturerCode: String!
+  externalIdentifiers: [ExternalIdentifier!]
+  posNumber: String
+  sourceSystem: SourceSystemData
+  dynamicAttributes: [DynamicAttributes!]
+}
+
+type bslGetAll {
+  lastPage: Boolean!
+  pageNumber: Float!
+  totalPages: Float!
+  totalResults: Float!
+  pageContent: [bslGet!]!
+}
+
 type Availability {
   availableForSale: Boolean!
 }
 
+type PageContent {
+  itemCode: String
+  enterpriseUnitId: String
+}
+
+type All {
+  lastPage: Boolean!
+  pageNumber: Float!
+  totalPages: Float!
+  totalResults: Float!
+  pageContent: [PageContent!]!
+}
+
 type Query {
   getItemAvailability(id: String!): Availability!
+  getAllItemAvailability: All!
   setItemAvailability(id: String!): String!
+  getItem(dto: CatalogItem!): bslGet!
+  getAllItems: bslGetAll!
+  createItem(dto: CatalogItem!): String!
+  deleteCatalogItem(dto: CatalogItem!): String!
+}
+
+input CatalogItem {
+  itemCode: String!
+  version: Float
+  longDescription: String
+  shortDescription: String
+  status: String!
 }
