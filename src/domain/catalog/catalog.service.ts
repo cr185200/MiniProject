@@ -6,7 +6,7 @@ import { BslCatalogItem } from 'src/data/entities/bslCatalogItem';
 @Injectable()
 export class CatalogService {
   constructor(
-    private catalogClient: BslCatalogRepository,
+    private catalogRepository: BslCatalogRepository,
   ) {}
 
   // Dto -> return type
@@ -79,22 +79,22 @@ export class CatalogService {
   }
 
   async createItem(dto: CatalogItem) {
-    return await this.catalogClient.createItem(dto.itemCode, this.format(dto, dto.itemCode));
+    return await this.catalogRepository.createItem(dto.itemCode, this.format(dto, dto.itemCode));
   }
 
   async updateItem(dto: CatalogItem) {
-    return await this.catalogClient.updateItem(dto.itemCode, this.format(dto, dto.itemCode));
+    return await this.catalogRepository.updateItem(dto.itemCode, this.format(dto, dto.itemCode));
   }
 
   async deleteCatalogItem(dto: CatalogItem) {
-    return await this.catalogClient.deleteItem(dto.itemCode, this.format(dto, dto.itemCode));
+    return await this.catalogRepository.deleteItem(dto.itemCode, this.format(dto, dto.itemCode));
   }
 
   async getAllItems() {
-    return await this.catalogClient.getAllItems();
+    return await this.catalogRepository.getAllItems();
   }
 
   async getItem(dto: CatalogItem) {
-    return await this.catalogClient.getItem(dto.itemCode);
+    return await this.catalogRepository.getItem(dto.itemCode);
   }
 } // catalog service

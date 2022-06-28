@@ -4,18 +4,18 @@ import { BslItemAvailabilityRepository } from 'src/data/repositories/bslItemAvai
 @Injectable()
 export class ItemAvailabilityService {
   constructor(
-    private itemAvailabilityClient: BslItemAvailabilityRepository,
+    private itemAvailabilityRepository: BslItemAvailabilityRepository,
   ) {}
 
   async getItemAvailability(id: string) {
-    return await this.itemAvailabilityClient.getItemAvailability(id);
+    return await this.itemAvailabilityRepository.getItemAvailability(id);
   }
 
   async getAllItemAvailability() {
-    return await this.itemAvailabilityClient.getAllItemAvailability();
+    return await this.itemAvailabilityRepository.getAllItemAvailability();
   }
 
   async setItemAvailability(id: string) {
-    return await this.itemAvailabilityClient.setItemAvailability(id);
+    return await this.itemAvailabilityRepository.setItemAvailability(id);
   }
 }
